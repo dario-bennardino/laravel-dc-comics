@@ -18,7 +18,7 @@
                         <a class="nav-link" href="{{ route('comics.index') }}">Prodotti</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('comics.index') }}">Nuovo Comic</a>
+                        <a class="nav-link" href="{{ route('comics.create') }}">Nuovo Comic</a>
                     </li>
 
                 </ul>

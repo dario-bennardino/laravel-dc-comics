@@ -21,8 +21,10 @@ class ComicsTableSeeder extends Seeder
         foreach ($comics as $comic) {
             $new_comic = new Comic();
             $new_comic->title = $comic['title'];
-            // $new_comic->slug = Helper::generateSlug($new_comic->title, Comic);
-            $new_comic->slug = Helper::generateSlug($new_comic->title, new Comic());
+            // $new_comic->slug = Helper::generateSlug($new_comic->title, new Comic());
+
+            $new_comic->slug = Helper::generateSlug($new_comic->tile, new Comic());
+
             $new_comic->description = $comic['description'];
             $new_comic->thumb = $comic['thumb'];
             $new_comic->price = $comic['price'];
@@ -31,7 +33,8 @@ class ComicsTableSeeder extends Seeder
             $new_comic->type = $comic['type'];
             $new_comic->artists = json_encode($comic['artists']);
             $new_comic->writers = json_encode($comic['writers']);
-            dump($new_comic);
+            // dump($new_comic);
+            $new_comic->save();
         }
     }
 }

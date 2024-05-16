@@ -5,7 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Comic;
+use App\Functions\Helper\Helper;
 use Illuminate\Support\Str;
+
 
 class ComicsTableSeeder extends Seeder
 {
@@ -15,6 +17,20 @@ class ComicsTableSeeder extends Seeder
     public function run(): void
     {
         $comics = config('comics');
-        dump($comics);
+        //
+        foreach ($comics as $comic) {
+            $new_comic = new Comic();
+            $new_comic->title = $comic['title'];
+            // $new_comic->slug = Helper::generateSlug($new_comic->title, Comic);
+            $new_comic->slug = Helper::generateSlug($new_comic->title, new Comic());
+            $new_comic->description = $comic['description'];
+            $new_comic->thumb = $comic['thumb'];
+            $new_comic->price = $comic['price'];
+            $new_comic->series = $comic['series'];
+            $new_comic->sale_date = $comic['sale_date'];
+            $new_comic->type = $comic['type'];
+            $new_comic->artists = json_encode($comic['artists']);
+            $new_comic->writers = json_encode($comic['writers']);
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Comic;
-use App\Functions\Helper\Helper;
+use App\Functions\Helper;
 use Illuminate\Support\Str;
 
 
@@ -31,6 +31,7 @@ class ComicsTableSeeder extends Seeder
             $new_comic->type = $comic['type'];
             $new_comic->artists = json_encode($comic['artists']);
             $new_comic->writers = json_encode($comic['writers']);
+            dump($new_comic);
         }
     }
 }

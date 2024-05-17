@@ -4,8 +4,8 @@
     <h1 class="text-center p-4 ">{{ $comic->title }}</h1>
     {{-- @dump($comic); --}}
 
-    @php
-        $status = 'nuovo comic';
+    {{-- @php
+        $status = 'test';
         $title = '';
         $description = '';
         $thumb = '';
@@ -28,7 +28,7 @@
             $artists = 'Jason Fabok';
             $writers = 'Geoff Johns';
         }
-    @endphp
+    @endphp --}}
 
     <form action="{{ route('comics.update', $comic) }}" method="POST">
         @csrf

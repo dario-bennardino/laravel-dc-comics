@@ -4,7 +4,7 @@
     <h1 class="text-center p-4 ">Nuovo Comic</h1>
 
     @php
-        $status = 'nuovo comic';
+        $status = 'test';
         $title = '';
         $description = '';
         $thumb = '';
@@ -37,7 +37,7 @@
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea name="description" class="form-control" id="description">{{ $description }}"</textarea>
+            <textarea name="description" class="form-control" id="description">{{ $description }}</textarea>
         </div>
         <div class="mb-3">
             <label for="thumb" class="form-label">Thumb</label>

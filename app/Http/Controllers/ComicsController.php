@@ -53,9 +53,10 @@ class ComicsController extends Controller
         // dd($form_data);
 
         //  /////////  ISTANZA CON FILLABLE  //////////
+        $form_data['slug'] = Helper::generateSlug($form_data['title'], new Comic());
         $new_comic->fill($form_data);
         //in form data non è presente lo slug e quindi lo devo aggiungere
-        $form_data['slug'] = Helper::generateSlug($form_data['title'], new Comic());
+
         $new_comic->save();
         return redirect()->route('comics.show', $new_comic);
     }

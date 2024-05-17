@@ -5,7 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Comic extends Model
 {
     use HasFactory;
+
+    //preparo i dati fillabili dentro al model
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'description',
+        'thumb',
+        'price',
+        'series',
+        'sale_date',
+        'type',
+        'artists',
+        'writers',
+
+    ];
 }

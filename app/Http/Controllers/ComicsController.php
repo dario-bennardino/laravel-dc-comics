@@ -108,8 +108,12 @@ class ComicsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Comic $comic)
     {
-        //
+        //elimino l'elemento e reindirizzo alla index con un messaggio in sessione dell'avvenuta eliminazione
+        $comic->delete();
+
+        // ->with('chiave variabile di sessione, 'valore variabile di sessione')
+        return redirect()->route('comics.index')->with('deleted', 'Il Comic' . $comic->title . 'è stato eliminato correttamente');
     }
 }

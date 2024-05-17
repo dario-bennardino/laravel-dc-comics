@@ -14,9 +14,10 @@
                             <h6>{{ $product->series }}</h6>
                             <h6>{{ $product->price }}</h6>
                             <p class="card-text">{{ $product->writers }}</p>
-                            <a href="{{ route('comics.show', $product->id) }}" class="btn btn-success btn-sm "><i
+                            <a href="{{ route('comics.show', $product) }}" class="btn btn-success btn-sm "><i
                                     class="fa-solid fa-eye"></i></a>
-                            <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pencil"></i></button>
+                            <a href="{{ route('comics.edit', $product) }}" class="btn btn-warning btn-sm"><i
+                                    class="fa-solid fa-pencil"></i></a>
                             <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
                         </div>
                     </div>

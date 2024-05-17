@@ -73,17 +73,36 @@ class ComicsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('Comics.edit', compact('comic'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        /*
+        1. valido i dati (TODO)
+        2. salvo i dati nel form in $form_data
+        3. genero lo slug se necessario
+        4. aggiorno i dati nel DB
+        5. redirect alla show
+
+        */
+
+        $form_data = $request->all();
+
+        if ($form_data['title'] === $comic->title) {
+            $form_data['slug'] = $comic->slug;
+        } else {
+            $form_data['slug'] = Helper::generateSlug($form_data['title'], new Comic());
+        }
+
+        //effettua il feel dei dati e li salva aggiornando il db
+        $comic->update($form_data);
+        return redirect()->route('comics.show', $comic);
     }
 
     /**

@@ -21,8 +21,10 @@ return new class extends Migration
             $table->string('series', 60)->nullable();
             $table->date('sale_date');
             $table->string('type', 60);
-            $table->json('artists');
-            $table->json('writers');
+            // $table->json('artists');
+            $table->text('artists');
+            // $table->json('writers');
+            $table->text('writers');
             $table->timestamps();
         });
     }

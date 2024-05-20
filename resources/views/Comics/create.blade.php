@@ -3,8 +3,22 @@
 @section('content')
     <h1 class="text-center p-4 ">Nuovo Comic</h1>
 
+    {{-- se sono presenti degli errori in sessione li stampo --}}
+    {{-- $errors->any() restituisce true se sono presenti degli errori in sessione --}}
+    @if ($errors->any())
+        <div class="alert alert-danger" role="alert">
+            {{-- $errors->all() restituisce un array con tutti gli errori --}}
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+
     @php
-        $status = 'test';
+        $status = 'nuovo';
         $title = '';
         $description = '';
         $thumb = '';
@@ -32,7 +46,7 @@
     <form action="{{ route('comics.store') }}" method="POST">
         @csrf
         <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
+            <label for="title" class="form-label">Title (*)</label>
             <input name="title" type="text" class="form-control" id="title" value="{{ $title }}">
         </div>
         <div class="mb-3">
@@ -44,7 +58,7 @@
             <input name="thumb" type="text" class="form-control" id="thumb" value="{{ $thumb }}">
         </div>
         <div class="mb-3">
-            <label for="price" class="form-label">Price</label>
+            <label for="price" class="form-label">Price (*)</label>
             <input name="price" type="text" class="form-control" id="price" value="{{ $price }}">
         </div>
         <div class="mb-3">
@@ -52,19 +66,19 @@
             <input name="series" type="text" class="form-control" id="series" value="{{ $series }}">
         </div>
         <div class="mb-3">
-            <label for="sale_date" class="form-label">Sale_date</label>
+            <label for="sale_date" class="form-label">Sale_date (*)</label>
             <input name="sale_date" type="text" class="form-control" id="sale_date" value="{{ $sale_date }}">
         </div>
         <div class="mb-3">
-            <label for="type" class="form-label">Type</label>
+            <label for="type" class="form-label">Type (*)</label>
             <input name="type" type="text" class="form-control" id="type" value="{{ $type }}">
         </div>
         <div class="mb-3">
-            <label for="artists" class="form-label">Artists</label>
+            <label for="artists" class="form-label">Artists (*)</label>
             <input name="artists" type="text" class="form-control" id="artists" value="{{ $artists }}">
         </div>
         <div class="mb-3">
-            <label for="writers" class="form-label">Writers</label>
+            <label for="writers" class="form-label">Writers (*)</label>
             <input name="writers" type="text" class="form-control" id="writers" value="{{ $writers }}">
         </div>
 

@@ -31,7 +31,23 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
+        //VALIDAZIONE
+        // leregole della validazione devono essere in relazione alla migration
+        $request->validate([
+            'title' =>  'required|min:3|max:120',
+            'description' => 'nullable',
+            'thumb' => 'nullable',
+            'price' =>  'required|min:2|max:10',
+            'series' =>  'nullable|min:3|max:60',
+            'sale_date' =>  'required|date',
+            'type' =>  'required|min:3|max:60',
+            'artists' =>  'required',
+            'writers' =>  'required',
+        ]);
+
+
         //ricevo da create i dati del nuovo prodotto, li salvo nel DB e reindirizzo a show con l'id del nuovo prodotto
+
 
         //prendo tutti i dati provenienti dal form e li salvo in un'array associativo
         $form_data = $request->all();

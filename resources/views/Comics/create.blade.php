@@ -47,39 +47,39 @@
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Title (*)</label>
-            <input name="title" type="text" class="form-control" id="title" value="{{ $title }}">
+            <input name="title" type="text" class="form-control" id="title" value="{{ old('title') }}">
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea name="description" class="form-control" id="description">{{ $description }}</textarea>
+            <textarea name="description" class="form-control" id="description">{{ old('description') }}</textarea>
         </div>
         <div class="mb-3">
             <label for="thumb" class="form-label">Thumb</label>
-            <input name="thumb" type="text" class="form-control" id="thumb" value="{{ $thumb }}">
+            <input name="thumb" type="text" class="form-control" id="thumb" value="{{ old('thumb') }}">
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Price (*)</label>
-            <input name="price" type="text" class="form-control" id="price" value="{{ $price }}">
+            <input name="price" type="text" class="form-control" id="price" value="{{ old('price') }}">
         </div>
         <div class="mb-3">
             <label for="series" class="form-label">Series</label>
-            <input name="series" type="text" class="form-control" id="series" value="{{ $series }}">
+            <input name="series" type="text" class="form-control" id="series" value="{{ old('series') }}">
         </div>
         <div class="mb-3">
             <label for="sale_date" class="form-label">Sale_date (*)</label>
-            <input name="sale_date" type="text" class="form-control" id="sale_date" value="{{ $sale_date }}">
+            <input name="sale_date" type="text" class="form-control" id="sale_date" value="{{ old('sale_date') }}">
         </div>
         <div class="mb-3">
             <label for="type" class="form-label">Type (*)</label>
-            <input name="type" type="text" class="form-control" id="type" value="{{ $type }}">
+            <input name="type" type="text" class="form-control" id="type" value="{{ old('type') }}">
         </div>
         <div class="mb-3">
             <label for="artists" class="form-label">Artists (*)</label>
-            <input name="artists" type="text" class="form-control" id="artists" value="{{ $artists }}">
+            <input name="artists" type="text" class="form-control" id="artists" value="{{ old('artists') }}">
         </div>
         <div class="mb-3">
             <label for="writers" class="form-label">Writers (*)</label>
-            <input name="writers" type="text" class="form-control" id="writers" value="{{ $writers }}">
+            <input name="writers" type="text" class="form-control" id="writers" value="{{ old('writers') }}">
         </div>
 
         <button class="btn btn-success" type="submit">Invia

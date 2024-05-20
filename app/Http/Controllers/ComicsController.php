@@ -32,7 +32,8 @@ class ComicsController extends Controller
     public function store(Request $request)
     {
         //VALIDAZIONE
-        // leregole della validazione devono essere in relazione alla migration
+        // leregole della validazione devono essere in relazione alla regole presenti nella migration
+        //->validate() accetta due array come parametri. Il primo contiene le rules il secondo (opzionale) i messaggi custom di errore
         $request->validate([
             'title' =>  'required|min:3|max:120',
             'description' => 'nullable',
@@ -43,6 +44,23 @@ class ComicsController extends Controller
             'type' =>  'required|min:3|max:60',
             'artists' =>  'required',
             'writers' =>  'required',
+        ], [
+            'title.required' => 'Il titolo è un campo obbligatorio',
+            'title.min' => 'Il titolo deve contenere almeno :min caratteri',
+            'title.max' => 'Il titolo deve contenere non più di :max caratteri',
+            'price.required' => 'Il prezzo è un campo obbligatorio',
+            'price.min' => 'Il prezzo deve contenere almeno :min caratteri',
+            'price.max' => 'Il prezzo deve contenere non più di :max caratteri',
+            'series.min' => 'La serie deve contenere almeno :min caratteri',
+            'series.max' => 'La serie deve contenere non più di :max caratteri',
+            'sale_date.required' => 'La data di vendita è un campo obbligatorio',
+            'sale_date.date' => 'La data deve essere formato date',
+            'type.required' => 'Il tipo è un campo obbligatorio',
+            'type.min' => 'Il tipo deve contenere almeno :min caratteri',
+            'type.max' => 'Il tipo deve contenere non più di :max caratteri',
+            'artists.required' => 'Artisti è un campo obbligatorio',
+            'writers.required' => 'Scrittori è un campo obbligatorio',
+
         ]);
 
 
